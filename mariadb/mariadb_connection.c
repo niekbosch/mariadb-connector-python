@@ -501,7 +501,7 @@ static int MrdbConnection_traverse(
 
 PyTypeObject MrdbConnection_Type = {
     PyVarObject_HEAD_INIT(NULL, 0)
-        "mariadb.connection",
+        "mariadb.Connection",
     sizeof(MrdbConnection),
     0,
     (destructor)MrdbConnection_dealloc, /* tp_dealloc */

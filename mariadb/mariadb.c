@@ -261,8 +261,15 @@ PyMODINIT_FUNC PyInit__mariadb(void)
             "mariadb.PoolError", Mariadb_Error,
             exception_pool__doc__, "PoolError");
 
+    // Maintain backward compatability
     Py_INCREF(&MrdbConnection_Type);
     PyModule_AddObject(module, "connection", (PyObject *)&MrdbConnection_Type);
+
+    // Export the Connection and Cursor class directly under the module and starting with a capital
+    Py_INCREF(&MrdbConnection_Type);
+    PyModule_AddObject(module, "Connection", (PyObject *)&MrdbConnection_Type);
+    Py_INCREF(&MrdbCursor_Type);
+    PyModule_AddObject(module, "Cursor", (PyObject *)&MrdbCursor_Type);
 
     cnx_pool= PyDict_New();
     Py_INCREF(&MrdbPool_Type);

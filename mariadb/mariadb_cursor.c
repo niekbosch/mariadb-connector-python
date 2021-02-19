@@ -301,7 +301,7 @@ static int MrdbCursor_traverse(
 PyTypeObject MrdbCursor_Type =
 {
     PyVarObject_HEAD_INIT(NULL, 0)
-        "mariadb.connection.cursor",
+        "mariadb.Cursor",
     sizeof(MrdbCursor),
     0,
     (destructor)MrdbCursor_dealloc, /* tp_dealloc */
